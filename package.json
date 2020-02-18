@@ -1,0 +1,43 @@
+{
+  "name": "af4-masternaturalist",
+  "version": "0.1.0",
+  "description": "AgriFlex4 variation for Texas Master Naturalist websites.",
+  "main": "af4-masternaturalist.php",
+  "scripts": {
+    "start": "git config core.hooksPath hooks && chmod u+x ./hooks/pre-commit && composer install && npm install && grunt",
+    "checkwp": "npm run configphpcs && npm run checkphp",
+    "configphpcs": "vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
+    "checkphp": "vendor/bin/phpcs --standard=WordPress ./*.php ./src",
+    "fixphp": "vendor/bin/phpcbf --standard=WordPress ./*.php ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgriLife/af4-masternaturalist.git"
+  },
+  "author": "Zachary Watkins",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/AgriLife/af4-masternaturalist/issues"
+  },
+  "homepage": "https://github.com/AgriLife/af4-masternaturalist#readme",
+  "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "cssnano": "^4.1.10",
+    "foundation-sites": "^6.6.1",
+    "grunt": "^1.0.3",
+    "grunt-combine-media-queries": "^1.0.20",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^3.1.0",
+    "grunt-sass-lint": "^0.2.4",
+    "node-sass": "^4.13.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie > 9"
+  ]
+}
