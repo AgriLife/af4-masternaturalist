@@ -1,0 +1,46 @@
+.site-header {
+	body & {
+		/* Override theme styles by increasing selector specificity */
+		.site-title img {
+			max-width: rem-calc(228);
+			max-height: rem-calc(150);
+		}
+
+		.grid-x {
+			align-items: center;
+		}
+
+		.grid-container {
+			padding: {
+				top: .9rem;
+				bottom: .9rem;
+			}
+		}
+	}
+}
+
+.header-right-widget-area {
+	text-align: right;
+
+	.logo {
+		display: inline-block;
+
+		img {
+			max-height: rem-calc(60);
+		}
+
+		+ .logo {
+			margin-left: 1rem;
+		}
+
+		&.ext img {
+			height: rem-calc(44);
+		}
+	}
+
+	.widget {
+		margin-top: .6rem;
+		padding-top: .6rem;
+		border-top: 1px solid rgba( $whiter, .3 );
+	}
+}
