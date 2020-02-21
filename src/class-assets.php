@@ -29,10 +29,11 @@ class Assets {
 	public function __construct() {
 
 		// Register global styles used in the theme.
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ), 1 );
 
 		// Enqueue extension styles.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 1 );
+
 		// Register global scripts used in the theme.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_public_scripts' ), 11 );
 
@@ -52,7 +53,7 @@ class Assets {
 		wp_register_style(
 			'masternaturalist-styles',
 			MNAF4_DIR_URL . 'css/style.css',
-			array( 'agriflex-default-styles' ),
+			false,
 			filemtime( MNAF4_DIR_PATH . 'css/style.css' ),
 			'screen'
 		);
