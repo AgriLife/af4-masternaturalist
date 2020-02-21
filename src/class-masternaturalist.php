@@ -44,6 +44,9 @@ class MasterNaturalist {
 		// Require classes.
 		$this->require_classes();
 
+		// Add Widgets.
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+
 	}
 
 	/**
@@ -61,6 +64,19 @@ class MasterNaturalist {
 		// Add Genesis hooks.
 		require_once MNAF4_DIR_PATH . '/src/class-genesis.php';
 		new \MasterNaturalist\Genesis();
+
+	}
+
+	/**
+	 * Register widgets
+	 *
+	 * @since 0.1.1
+	 * @return void
+	 */
+	public function register_widgets() {
+
+		require_once MNAF4_DIR_PATH . 'src/class-widget-af4-contact.php';
+		register_widget( 'Widget_AF4_Contact' );
 
 	}
 
