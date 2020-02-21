@@ -1,3 +1,5 @@
+/* Copy from github.com/agrilife/agriflex4/css/src/_settings.scss */
+
 /* Typography
 --------------------------------------------- */
 // $base-font-size: 16px;
@@ -172,3 +174,10 @@ $footer-text: #F8F8F8;
 $footer-link-active: $light-blue;
 $footer-font-family: $header-font-family;
 $footer-font-weight: 400;
+
+/* END copy from github.com/agrilife/agriflex4/css/src/_settings.scss */
+
+$nat-green: #0C6C31;
+$nat-dark-green: #0C6C31;
+$site-title-background: $nat-green;
+$footer-background: $site-title-background;

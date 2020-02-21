@@ -2,3 +2,10 @@
 
 @import "foundation";
 @import "settings";
+body {
+	.site-header,
+	.site-header .wrap.is-at-top,
+	.site-footer {
+		background-color: $site-title-background;
+	}
+}
