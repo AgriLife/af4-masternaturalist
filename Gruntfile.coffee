@@ -5,6 +5,7 @@ module.exports = (grunt) ->
     watch:
       files: [
         'css/src/**/*.scss'
+        'js/src/**/*.coffee'
       ]
       tasks: ['develop']
     postcss:
@@ -53,15 +54,22 @@ module.exports = (grunt) ->
       options:
         configFile: '.sass-lint.yml'
       target: ['css/**/*.s+(a|c)ss']
+    coffee:
+      compile:
+        options:
+          bare: true
+        files:
+          'js/public.js': 'js/src/public.coffee'
 
+  @loadNpmTasks 'grunt-contrib-coffee'
   @loadNpmTasks 'grunt-contrib-watch'
   @loadNpmTasks 'grunt-sass-lint'
   @loadNpmTasks 'grunt-sass'
   @loadNpmTasks 'grunt-postcss'
   @loadNpmTasks 'grunt-combine-media-queries'
 
-  @registerTask 'default', ['sasslint', 'sass:pkg', 'cmq', 'postcss:pkg']
-  @registerTask 'develop', ['sasslint', 'sass:dev', 'postcss:dev']
+  @registerTask 'default', ['sasslint', 'sass:pkg', 'cmq', 'postcss:pkg', 'coffee']
+  @registerTask 'develop', ['sasslint', 'sass:dev', 'postcss:dev', 'coffee']
 
   @event.on 'watch', (action, filepath) =>
     @log.writeln('#{filepath} has #{action}')

@@ -33,6 +33,11 @@ class Assets {
 
 		// Enqueue extension styles.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		// Register global scripts used in the theme.
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_public_scripts' ), 11 );
+
+		// Enqueue global scripts.
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_scripts' ), 13 );
 
 	}
 
@@ -63,6 +68,36 @@ class Assets {
 	public function enqueue_styles() {
 
 		wp_enqueue_style( 'masternaturalist-styles' );
+
+	}
+
+	/**
+	 * Registers globally used scripts
+	 *
+	 * @since 0.1.0
+	 * @return void
+	 */
+	public function register_public_scripts() {
+
+		wp_register_script(
+			'af4mn-public',
+			MNAF4_DIR_URL . '/js/public.js',
+			false,
+			filemtime( MNAF4_DIR_PATH . '/js/public.js' ),
+			true
+		);
+
+	}
+
+	/**
+	 * Enqueues globally used scripts
+	 *
+	 * @since 0.1.0
+	 * @return void
+	 */
+	public function enqueue_public_scripts() {
+
+		wp_enqueue_script( 'af4mn-public' );
 
 	}
 

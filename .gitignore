@@ -44,5 +44,6 @@ cache
 node_modules
 .sass-cache
 css/*.css*
+js/*.js
 vendor
 *.zip
