@@ -8,7 +8,7 @@
  * @license      GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name:  MasterNaturalist - AgriFlex4
+ * Plugin Name:  Master Naturalist - AgriFlex4
  * Plugin URI:   https://github.com/AgriLife/af4-masternaturalist
  * Description:  A plugin for Master Naturalist websites on the AgriFlex4 theme.
  * Version:      0.1.0
