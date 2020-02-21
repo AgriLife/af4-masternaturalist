@@ -47,7 +47,7 @@ register_activation_hook( __FILE__, 'masternaturalist_activation' );
 function masternaturalist_activation() {
 
 	// Check for missing dependencies.
-	$theme  = wp_get_theme();
+	$theme = wp_get_theme();
 	if ( 'AgriFlex4' !== $theme->name ) {
 		$error = sprintf(
 			/* translators: %s: URL for plugins dashboard page */
