@@ -38,12 +38,60 @@ class Genesis {
 		add_filter( 'widget_display_callback', array( $this, 'change_header_icon_size' ), 11, 3 );
 		add_filter( 'genesis_attr_title-area', array( $this, 'class_cell_title_area' ), 11 );
 		add_filter( 'af4_header_right_attr', array( $this, 'af4_header_right_attr' ) );
-		add_filter( 'af4_header_right_widget_area_atts', array( $this, 'af4_header_right_logos' ) );
+		$active_widgets = wp_get_sidebars_widgets();
+		if ( empty( $active_widgets['af4-header-right'] ) ) {
+			add_action( 'genesis_header', array( $this, 'header_right_logos' ), 11 );
+		} else {
+			add_filter( 'af4_header_right_widget_area_atts', array( $this, 'af4_header_right_logos' ) );
+		}
 
 		// Modify footer.
 		add_filter( 'genesis_structural_wrap-footer', array( $this, 'class_footer_wrap' ), 12 );
 		add_action( 'genesis_footer', array( $this, 'genesis_footer_widget_area' ), 7 );
 		add_action( 'genesis_footer', array( $this, 'add_copyright' ), 9 );
+
+	}
+
+	/**
+	 * Return association logos.
+	 *
+	 * @since 0.1.2
+	 * @return string
+	 */
+	private function get_header_assoc_logos() {
+
+		$extension = sprintf(
+			'<a href="%s" class="association-logo logo ext"><img src="%s%s"></a>',
+			'https://agrilifeextension.tamu.edu/',
+			MNAF4_DIR_URL,
+			'images/extension-logo-white.png'
+		);
+
+		$tpw = sprintf(
+			'<a href="%s" class="association-logo logo tpw"><img src="%s%s"></a>',
+			'https://tpwd.texas.gov/',
+			MNAF4_DIR_URL,
+			'images/tpw-logo-white.png'
+		);
+
+		return $extension . $tpw;
+
+	}
+
+	/**
+	 * Add logos to right side of header.
+	 *
+	 * @since 0.1.2
+	 * @return void
+	 */
+	public function header_right_logos() {
+
+		$output = sprintf(
+			'<div class="cell small-12 medium-shrink">%s</div>',
+			$this->get_header_assoc_logos()
+		);
+
+		echo wp_kses_post( $output );
 
 	}
 
@@ -54,23 +102,9 @@ class Genesis {
 	 * @param array $attr An array of af4-header-right widget area attributes.
 	 * @return array
 	 */
-	public function af4_header_right_logos( $attr ){
+	public function af4_header_right_logos( $attr ) {
 
-		$extension = sprintf(
-			'<a href="%s" class="logo ext"><img src="%s%s"></a>',
-			'https://agrilifeextension.tamu.edu/',
-			MNAF4_DIR_URL,
-			'images/extension-logo-white.png'
-		);
-
-		$tpw = sprintf(
-			'<a href="%s" class="logo tpw"><img src="%s%s"></a>',
-			'https://tpwd.texas.gov/',
-			MNAF4_DIR_URL,
-			'images/tpw-logo-white.png'
-		);
-
-		$attr['before'] .= $extension . $tpw;
+		$attr['before'] .= $this->get_header_assoc_logos();
 
 		return $attr;
 

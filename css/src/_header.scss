@@ -17,12 +17,8 @@
 			}
 		}
 	}
-}
 
-.header-right-widget-area {
-	text-align: right;
-
-	.logo {
+	.association-logo {
 		display: inline-block;
 
 		img {
@@ -37,6 +33,10 @@
 			height: rem-calc(44);
 		}
 	}
+}
+
+.header-right-widget-area {
+	text-align: right;
 
 	.widget {
 		margin-top: .6rem;
