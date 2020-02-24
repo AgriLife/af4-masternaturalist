@@ -32,8 +32,6 @@ class Genesis {
 		// Replace site title with logo.
 		add_filter( 'genesis_seo_title', array( $this, 'add_logo' ), 10, 3 );
 
-		add_action( 'init', array( $this, 'init' ) );
-
 		// Modify header.
 		add_filter( 'widget_display_callback', array( $this, 'change_header_icon_size' ), 11, 3 );
 		add_filter( 'genesis_attr_title-area', array( $this, 'class_cell_title_area' ), 11 );
@@ -44,11 +42,6 @@ class Genesis {
 		} else {
 			add_filter( 'af4_header_right_widget_area_atts', array( $this, 'af4_header_right_logos' ) );
 		}
-
-		// Modify footer.
-		add_filter( 'genesis_structural_wrap-footer', array( $this, 'class_footer_wrap' ), 12 );
-		add_action( 'genesis_footer', array( $this, 'genesis_footer_widget_area' ), 7 );
-		add_action( 'genesis_footer', array( $this, 'add_copyright' ), 9 );
 
 	}
 
@@ -130,21 +123,6 @@ class Genesis {
 	}
 
 	/**
-	 * Initialize the various classes
-	 *
-	 * @since 0.1.1
-	 * @return void
-	 */
-	public function init() {
-
-		global $af_required;
-
-		// Custom footer.
-		remove_action( 'genesis_footer', array( $af_required, 'render_tamus_logo' ), 10 );
-
-	}
-
-	/**
 	 * Change header title area cell class names
 	 *
 	 * @since 0.1.1
@@ -190,67 +168,6 @@ class Genesis {
 		$title = str_replace( $inside, $new_inside, $title );
 
 		return $title;
-
-	}
-
-	/**
-	 * Change footer wrap class names
-	 *
-	 * @since 0.1.1
-	 * @param string $output The wrap HTML.
-	 * @return string
-	 */
-	public function class_footer_wrap( $output ) {
-
-		$output = preg_replace( '/\s?grid-container\s?/', ' ', $output );
-		$output = preg_replace( '/\s?grid-x\s?/', ' ', $output );
-		$output = preg_replace( '/\s?grid-padding-x\s?/', ' ', $output );
-		$output = preg_replace( '/class=" /', 'class="', $output );
-
-		return $output;
-	}
-
-	/**
-	 * Add footer widget areas
-	 *
-	 * @since 0.1.1
-	 * @return void
-	 */
-	public function genesis_footer_widget_area() {
-
-		echo '<div class="footer-info grid-container"><div class="grid-x grid-padding-x">';
-
-		genesis_widget_area(
-			'footer-right',
-			array(
-				'before' => '',
-				'after'  => '',
-			)
-		);
-
-		echo '<div class="cell medium-order-1 medium-6 small-12"><div class="grid-x">';
-
-		genesis_widget_area(
-			'footer-left',
-			array(
-				'before' => '',
-				'after'  => '',
-			)
-		);
-
-		echo '</div></div></div></div>';
-
-	}
-
-	/**
-	 * Add copyright notice
-	 *
-	 * @since 0.1.1
-	 * @return void
-	 */
-	public function add_copyright() {
-
-		echo wp_kses_post( '<p class="center">&copy; ' . date( 'Y' ) . ' Texas A&amp;M University. All rights reserved.</p>' );
 
 	}
 }
