@@ -2,8 +2,17 @@
 	body & {
 		/* Override theme styles by increasing selector specificity */
 		.site-title img {
-			max-width: rem-calc(228);
-			max-height: rem-calc(150);
+			max: {
+				width: rem-calc(140);
+				height: rem-calc(88);
+			}
+
+			@include breakpoint(medium) {
+				max: {
+					width: rem-calc(228);
+					height: rem-calc(150);
+				}
+			}
 		}
 
 		.grid-x {
@@ -32,6 +41,10 @@
 		&.ext img {
 			height: rem-calc(44);
 		}
+	}
+
+	@include breakpoint(medium) {
+		border-bottom: 2px solid $gray-lighter;
 	}
 }
 

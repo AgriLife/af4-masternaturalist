@@ -177,7 +177,23 @@ $footer-font-weight: 400;
 
 /* END copy from github.com/agrilife/agriflex4/css/src/_settings.scss */
 
+$global-menu-padding-top: 0.7rem;
+$global-menu-padding-side: 1rem;
+$global-menu-padding: $global-menu-padding-top $global-menu-padding-side;
+$red: #F00;
 $nat-green: #0C6C31;
 $nat-dark-green: #0C6C31;
+$nav-wrap-bg: $whiter;
+$nav-bg-gray: #E7E7E7;
+$nav-yellow: #FFE404;
+$nav-height: 1rem + $global-menu-padding-top * 2;
+$nav-height-stuck: 1.3rem;
+$nav-item-padding-top-stuck: $global-menu-padding-top - .3rem;
+$nav-text-color: $black;
 $site-title-background: $nat-green;
 $footer-background: $site-title-background;
+$nav-bg: $whiter;
+$nav-submenu-item-border-color: $dark-blue;
+$nav-submenu-item-border: 1px dashed $nav-submenu-item-border-color;
+$logo-width: 3.8rem;
+$logo-width-stuck: 3.8rem;

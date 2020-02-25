@@ -1,0 +1,303 @@
+// Temporary fix for flash of submenu content.
+body {
+	html:not(.no-js) *[data-responsive-menu*="dropdown"] .submenu:not(.is-dropdown-submenu) {
+		display: none;
+	}
+
+	.menu a:hover {
+		transition: all .1s; // Fixes flicker in background color.
+	}
+
+	.submenu {
+		padding: 1.1rem;
+
+		li.linked > a:hover,
+		li.linked > a:focus {
+			transition: all .1s; // Fixes flicker in background color.
+		}
+
+		.unlinked > a {
+			cursor: default;
+		}
+
+		.grid &.menu-depth-1 {
+			padding: .7rem .8rem;
+
+			li li {
+				padding: 0;
+			}
+		}
+
+		&.grid .menu-item-has-children {
+			padding: 0 .8rem;
+		}
+
+		.menu-item:not(.grid) & .is-dropdown-submenu-parent.opens-right > a {
+			padding-right: rem-calc(10) + 0.2rem;
+		}
+
+		@include breakpoint(medium) {
+			li:not(.menu-item-has-children) + li {
+				border-top: {
+					style: dashed;
+					width: 1px;
+				}
+			}
+		}
+	}
+
+	.dropdown .is-dropdown-submenu a {
+		padding: 0.6rem 0.2rem;
+	}
+
+	.top-bar .top-bar-left {
+		max-width: calc(100% + #{$grid-padding-gutters});
+	}
+
+	.nav-primary {
+		clear: none;
+		font-family: $opensans;
+
+		#nav-menu-primary {
+			margin-top: 0;
+		}
+
+		.top-bar {
+			position: relative;
+			padding: 0 1rem;
+			margin-top: 0;
+		}
+
+		.dropdown.menu > li {
+			> a {
+				position: relative;
+			}
+		}
+
+		.menu-primary {
+			position: static;
+		}
+
+		.is-dropdown-submenu.js-dropdown-active {
+			display: flex;
+		}
+
+		.submenu {
+			li {
+				&,
+				&:hover {
+					border-left: none;
+				}
+			}
+		}
+
+		// Row of submenu columns.
+		@include breakpoint(medium) {
+			@include breakpoint($break-xlarge + 16px down) {
+				.grid {
+					position: static;
+				}
+
+				.dropdown.menu > .grid > .is-dropdown-submenu {
+					position: absolute;
+					right: 0;
+					left: 0;
+					top: 100%;
+				}
+			}
+		}
+
+		@include breakpoint($break-xlarge + 16px) {
+			.submenu.menu-depth-1 {
+				border: {
+					width: 1px;
+					style: solid;
+				}
+			}
+		}
+
+		.grid {
+			.is-dropdown-submenu.menu-depth-1 .is-dropdown-submenu-parent.opens-right > a::after {
+				display: none;
+			}
+
+			.is-dropdown-submenu {
+				min-width: auto;
+			}
+
+			.submenu {
+				&.menu-depth-1 {
+					flex: 0 0 auto;
+					flex-wrap: nowrap;
+
+					> li {
+						padding: 0 .8rem;
+
+						@include breakpoint($break-xlarge + 16px) {
+							padding: 0 .8rem;
+							max-width: 275px;
+							min-width: 185px;
+						}
+
+						> a {
+							font-weight: bold;
+						}
+					}
+
+					.submenu {
+						padding: 0;
+					}
+				}
+
+				&.menu-depth-2 {
+					display: block;
+					position: static;
+				}
+			}
+
+			.submenu.menu-depth-1 > li:not(.menu-item-has-children) + li {
+				border-top: none;
+			}
+		}
+
+		@at-root body .site-header .nav-primary .title-bar-search {
+			border-right: none;
+			width: 100%;
+
+			.search-icon {
+				display: none;
+			}
+		}
+
+		#header-search {
+			position: relative;
+
+			// @at-root body .site-header .nav-primary #header-search {
+			margin: {
+				left: 0;
+				right: 0;
+			}
+			// }
+		}
+
+		@include breakpoint(medium) {
+			> .wrap {
+				display: block;
+			}
+
+			@at-root .site-header .is-stuck .nav-primary .top-bar.grid-container {
+				padding: {
+					top: 0;
+					bottom: 0;
+				}
+			}
+
+			#nav-menu-primary {
+				margin: auto;
+			}
+
+			.submenu .unlinked > a {
+				font-weight: bold;
+			}
+
+			.title-bars {
+				align-self: flex-start;
+				padding: {
+					left: $grid-padding-gutters / 2 - $titlebar-padding;
+					right: $grid-padding-gutters / 2 - $titlebar-padding;
+				}
+			}
+
+			.title-bar-search {
+				position: relative;
+
+				@at-root body .site-header .nav-primary .title-bar-search .search-icon {
+					height: $nav-height;
+					display: inline-block;
+				}
+			}
+
+			#header-search {
+				position: absolute;
+				top: 100%;
+				right: -8px;
+				padding: .5rem;
+				width: 225px;
+			}
+
+			.search-form {
+				input[type="search"] {
+					width: calc(100% - 34px);
+					margin-right: 8px;
+				}
+
+				input[type="submit"] {
+					background-position: center;
+					margin: 0;
+					cursor: pointer;
+					width: 26px;
+				}
+			}
+
+			.top-bar {
+				width: 100%;
+			}
+
+			.menu-primary {
+				padding: {
+					left: .2rem;
+					right: 0;
+				}
+				line-height: $nav-height;
+			}
+
+			.submenu {
+				li:not(.menu-item-has-children) {
+					border-bottom: none;
+				}
+			}
+
+			@at-root body .is-stuck .nav-primary {
+				.title-bar-search .search-icon {
+					height: $nav-height-stuck;
+				}
+
+				.menu-primary {
+					line-height: $nav-height-stuck;
+				}
+
+				.dropdown.menu > li > a {
+					font-size: 14px;
+					line-height: 1rem;
+					padding: {
+						top: $nav-item-padding-top-stuck;
+						bottom: $nav-item-padding-top-stuck;
+					}
+				}
+
+				.search-form input[type="submit"] {
+					height: $nav-height-stuck;
+					width: 22px;
+				}
+			}
+		}
+	}
+
+	@include breakpoint(medium) {
+		.menu-depth-1 {
+			border: {
+				width: 1px;
+				style: solid;
+			}
+			padding: .7rem 0;
+		}
+
+		.is-dropdown-submenu-parent.opens-right>.is-dropdown-submenu {
+			padding: 0 1rem .5rem;
+		}
+
+		#menu-departments-1 {
+			padding: 0 1em 1em 1em;
+		}
+	}
+}

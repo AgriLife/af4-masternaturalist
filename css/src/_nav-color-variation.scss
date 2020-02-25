@@ -1,0 +1,149 @@
+body {
+	.menu .is-active > a,
+	.dropdown.menu > li.is-active > a {
+		background-color: $whiter;
+	}
+
+	.menu {
+		a {
+			color: $nav-bg;
+
+			&:hover {
+				color: $nav-bg;
+				background-color: $nav-bg-gray;
+			}
+		}
+	}
+
+	.submenu {
+
+		li.linked > a:hover,
+		li.linked > a:focus {
+			background-color: $nav-bg-gray;
+		}
+
+		.unlinked > a {
+			color: $maroon;
+		}
+
+		@include breakpoint(medium) {
+			li:not(.menu-item-has-children) + li {
+				border-top-color: $nav-submenu-item-border-color;
+			}
+		}
+	}
+
+	.nav-primary {
+		background-color: $whiter;
+
+		a {
+			&:hover {
+				background-color: $nav-bg-gray;
+			}
+		}
+
+		input[type="search"] {
+			color: $nav-text-color;
+			border-bottom: 1px solid $nav-text-color;
+		}
+
+		a,
+		a:hover,
+		li:hover a,
+		li:hover .menu-depth-1 a,
+		.menu-depth-1 a {
+			color: $nav-text-color;
+		}
+
+		.top-bar {
+			&,
+			ul {
+				background-color: $whiter;
+			}
+
+			.submenu {
+				&,
+				ul {
+					background-color: $whiter;
+				}
+			}
+		}
+
+		.dropdown.menu > li.is-active > a {
+			color: $nav-text-color;
+		}
+
+		@include breakpoint($break-xlarge + 16px) {
+			.submenu.menu-depth-1 {
+				border-color: $maroon;
+			}
+		}
+
+		@include breakpoint(medium) {
+			&,
+			.top-bar,
+			.top-bar ul {
+				background-color: $nav-wrap-bg;
+			}
+
+			input[type="search"] {
+				color: $nav-text-color;
+			}
+
+			a,
+			li:hover a {
+				color: $nav-text-color;
+			}
+
+			#header-search {
+				background-color: $nav-wrap-bg;
+				border: 1px solid $nav-text-color;
+			}
+
+			.menu-primary {
+				> li {
+					> a:hover,
+					&.is-active > a {
+						background-color: darken($nav-wrap-bg, 6%);
+					}
+				}
+			}
+
+			.dropdown.menu > li.is-dropdown-submenu-parent > a::after,
+			.dropdown.menu > li.is-dropdown-submenu-parent:hover > a::after,
+			.dropdown.menu > li.is-dropdown-submenu-parent.is-active > a::after {
+				border-color: $nav-text-color transparent transparent;
+			}
+
+			.submenu {
+				li:hover {
+					border-left-color: darken($nav-wrap-bg, 6%);
+				}
+			}
+		}
+	}
+
+	@include breakpoint(medium) {
+		.menu .unlinked > a:hover {
+			background-color: $whiter;
+		}
+
+		.nav-primary {
+			.submenu .unlinked > a
+			li:hover .submenu .unlinked > a {
+				color: $maroon;
+			}
+		}
+
+		.menu-depth-1 {
+			border-color: $whiter;
+		}
+	}
+}
+
+body .site-header .title-bar-search .search-icon,
+body .nav-primary .search-form input[type="submit"],
+body .nav-primary .search-form input[type="submit"]:hover,
+body .nav-primary .search-form input[type="submit"]:focus {
+	background-image: url("../../../themes/agriflex4/images/search-agrilife.png");
+}
