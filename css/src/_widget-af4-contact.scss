@@ -1,9 +1,24 @@
+$icon-space-width: 16px;
+
 %icon {
 	content: "";
 	display: inline-block;
 	vertical-align: top;
 	margin-right: $grid-margin-gutters / 4;
 	background: transparent none no-repeat center/contain;
+}
+
+.agrilife-contact {
+	.info {
+		position: relative;
+		padding-left: $icon-space-width * 1.5;
+		line-height: 1.2;
+
+		&::before {
+			position: absolute;
+			left: 0;
+		}
+	}
 }
 
 .icon-location {

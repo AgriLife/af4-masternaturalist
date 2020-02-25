@@ -24,7 +24,7 @@ class Widget_AF4_Contact extends WP_Widget {
 	 */
 	protected $default_instance = array(
 		'title'   => '',
-		'content' => '<div class="icon-location">600 John Kimbrough Blvd, College Station, TX 77843</div><div><a class="icon-phone" href="tel:979-845-4747">(979) 845-4747</a><span class="pipe"></span><a class="icon-email" href="mailto:aglifesciences@tamu.edu">Contact Us</a></div>',
+		'content' => '<div class="info icon-location">600 John Kimbrough Blvd, College Station, TX 77843</div><div><a class="info icon-phone" href="tel:979-845-4747">(979) 845-4747</a><span class="pipe"></span><a class="info icon-email" href="mailto:aglifesciences@tamu.edu">Contact Us</a></div>',
 	);
 
 	/**
@@ -78,6 +78,7 @@ class Widget_AF4_Contact extends WP_Widget {
 				'div'  => array(
 					'class' => array(),
 				),
+				'br'   => true,
 				'span' => array(
 					'class' => array(),
 				),
