@@ -9,7 +9,7 @@ body {
 	}
 
 	.submenu {
-		padding: 1.1rem;
+		padding: 0;
 
 		li.linked > a:hover,
 		li.linked > a:focus {
@@ -37,17 +37,17 @@ body {
 		}
 
 		@include breakpoint(medium) {
-			li:not(.menu-item-has-children) + li {
+			.submenu {
+				margin-top: -1px;
+			}
+
+			li:not(.menu-item-has-children) ~ li {
 				border-top: {
 					style: dashed;
 					width: 1px;
 				}
 			}
 		}
-	}
-
-	.dropdown .is-dropdown-submenu a {
-		padding: 0.6rem 0.2rem;
 	}
 
 	.nav-primary {
@@ -107,7 +107,7 @@ body {
 		}
 
 		@include breakpoint($break-xlarge + 16px) {
-			.submenu.menu-depth-1 {
+			.submenu {
 				border: {
 					width: 1px;
 					style: solid;
@@ -326,11 +326,7 @@ body {
 				width: 1px;
 				style: solid;
 			}
-			padding: .7rem 0;
-		}
-
-		.is-dropdown-submenu-parent.opens-right>.is-dropdown-submenu {
-			padding: 0 1rem .5rem;
+			padding: 0;
 		}
 
 		#menu-departments-1 {
