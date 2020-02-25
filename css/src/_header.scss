@@ -1,5 +1,7 @@
 .site-header {
-	border-bottom: 2px solid $gray-lighter;
+	.sticky {
+		border-bottom: 2px solid $gray-lighter;
+	}
 
 	body & {
 		/* Override theme styles by increasing selector specificity */
