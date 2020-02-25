@@ -1,6 +1,11 @@
 .site-header {
+	border-bottom: 2px solid $gray-lighter;
+
 	body & {
 		/* Override theme styles by increasing selector specificity */
+		text-align: left;
+		letter-spacing: 0;
+
 		.site-title img {
 			max: {
 				width: rem-calc(140);
@@ -24,6 +29,10 @@
 				top: .9rem;
 				bottom: .9rem;
 			}
+
+			.top-bar-left {
+				margin: 0;
+			}
 		}
 	}
 
@@ -41,10 +50,6 @@
 		&.ext img {
 			height: rem-calc(44);
 		}
-	}
-
-	@include breakpoint(medium) {
-		border-bottom: 2px solid $gray-lighter;
 	}
 }
 

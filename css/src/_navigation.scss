@@ -50,10 +50,6 @@ body {
 		padding: 0.6rem 0.2rem;
 	}
 
-	.top-bar .top-bar-left {
-		max-width: calc(100% + #{$grid-padding-gutters});
-	}
-
 	.nav-primary {
 		clear: none;
 		font-family: $opensans;
@@ -64,7 +60,6 @@ body {
 
 		.top-bar {
 			position: relative;
-			padding: 0 1rem;
 			margin-top: 0;
 		}
 
@@ -93,6 +88,10 @@ body {
 
 		// Row of submenu columns.
 		@include breakpoint(medium) {
+			.top-bar {
+				padding: 0 1rem;
+			}
+
 			@include breakpoint($break-xlarge + 16px down) {
 				.grid {
 					position: static;
@@ -283,7 +282,45 @@ body {
 		}
 	}
 
+	@include breakpoint(small only) {
+		.site-header .title-bars .title-bar {
+			&,
+			&.title-bar-navigation .title-bar-title {
+				padding: 0;
+			}
+		}
+
+		.site-header #header-search {
+			margin: 1rem 0;
+		}
+
+		.title-bars {
+			form {
+				@include xy-grid;
+
+				input[type=search],
+				input[type=submit] {
+					@include xy-cell-base();
+					margin: 0;
+				}
+
+				input[type=search] {
+					@include xy-cell(8, $gutter-type: margin, $gutters: 0);
+					border-color: $gray-light;
+				}
+
+				input[type=submit] {
+					@include xy-cell(auto, $gutters: 1rem, $gutter-position: (left));
+				}
+			}
+		}
+	}
+
 	@include breakpoint(medium) {
+		.top-bar .top-bar-left {
+			width: calc(100% + #{$grid-padding-gutters});
+		}
+
 		.menu-depth-1 {
 			border: {
 				width: 1px;

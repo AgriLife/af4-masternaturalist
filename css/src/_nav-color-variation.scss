@@ -44,7 +44,7 @@ body {
 
 		input[type="search"] {
 			color: $nav-text-color;
-			border-bottom: 1px solid $nav-text-color;
+			border-color: $nav-text-color;
 		}
 
 		a,
@@ -87,7 +87,7 @@ body {
 			}
 
 			input[type="search"] {
-				color: $nav-text-color;
+				border-bottom: 1px solid $nav-text-color;
 			}
 
 			a,
@@ -141,9 +141,12 @@ body {
 	}
 }
 
-body .site-header .title-bar-search .search-icon,
-body .nav-primary .search-form input[type="submit"],
-body .nav-primary .search-form input[type="submit"]:hover,
-body .nav-primary .search-form input[type="submit"]:focus {
-	background-image: url("../../../themes/agriflex4/images/search-agrilife.png");
+@include breakpoint(medium) {
+	body .site-header .title-bar-search .search-icon,
+	body .nav-primary .search-form input[type="submit"],
+	body .nav-primary .search-form input[type="submit"]:hover,
+	body .nav-primary .search-form input[type="submit"]:focus {
+		background-image: url("../../../themes/agriflex4/images/search-agrilife.png");
+	}
+
 }
