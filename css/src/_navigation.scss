@@ -293,6 +293,10 @@ body {
 			}
 		}
 
+		.nav-primary .submenu {
+			margin-left: $grid-padding-gutters / 2;
+		}
+
 		.site-header #header-search {
 			margin: 1rem 0;
 		}
