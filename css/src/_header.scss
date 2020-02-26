@@ -32,8 +32,10 @@
 				bottom: .9rem;
 			}
 
-			.top-bar-left {
-				margin: 0;
+			@include breakpoint(small only) {
+				.top-bar-left {
+					margin: 0;
+				}
 			}
 		}
 	}

@@ -326,6 +326,7 @@ body {
 	@include breakpoint(medium) {
 		.top-bar .top-bar-left {
 			width: calc(100% + #{$grid-padding-gutters});
+			max-width: calc(100% + #{$grid-padding-gutters});
 		}
 
 		.menu-depth-1 {
