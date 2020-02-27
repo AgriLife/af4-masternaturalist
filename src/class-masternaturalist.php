@@ -65,6 +65,10 @@ class MasterNaturalist {
 		require_once MNAF4_DIR_PATH . '/src/class-genesis.php';
 		new \MasterNaturalist\Genesis();
 
+		// Move navigation menu below header.
+		require_once MNAF4_DIR_PATH . '/src/class-movenavunderheader.php';
+		new \MasterNaturalist\MoveNavUnderHeader();
+
 	}
 
 	/**
