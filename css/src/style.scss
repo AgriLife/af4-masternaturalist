@@ -3,16 +3,13 @@
 @import "foundation";
 @import "af4-settings";
 @import "settings";
+
+body {
+	@import "util/colorscheme";
+}
+
 @import "header";
 @import "nav-color-variation";
 @import "nav-below-header";
 @import "nav-search";
 @import "widget-af4-contact";
-
-body {
-	.site-header,
-	.site-header .wrap.is-at-top,
-	.site-footer {
-		background-color: $site-title-background;
-	}
-}
