@@ -1,10 +1,23 @@
 /* Colors
 --------------------------------------------- */
+$red: #F00;
+$nat-green: #0C6C31;
+$nat-brown: #82591F;
+$nat-dark-green: #0C6C31;
+$nav-wrap-bg: $whiter;
+$nav-bg-gray: #E7E7E7;
 $nav-yellow: #FFE404;
 
+$primary-color: $nat-green;
+$secondary-color: $nat-brown;
 
+$af4-colors: (
+	primary: $nat-green,
+	primary-light: $nat-brown,
+	secondary: $nat-brown
 );
 
+/* Navigation
 --------------------------------------------- */
 $global-menu-padding-top: 0.7rem;
 $global-menu-padding-side: 1rem;
@@ -16,5 +29,13 @@ $nav-text-color: $black;
 $nav-bg: $whiter;
 $nav-submenu-item-border-color: $dark-blue;
 $nav-submenu-item-border: 1px dashed $nav-submenu-item-border-color;
+
+/* Header
+--------------------------------------------- */
+$site-title-background: $nat-green;
 $logo-width: 3.8rem;
 $logo-width-stuck: 3.8rem;
+
+/* Footer
+--------------------------------------------- */
+$footer-background: $site-title-background;
