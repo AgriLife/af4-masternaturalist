@@ -5,8 +5,14 @@ $nat-brown: #82591F;
 $af4-colors: (
 	primary: $nat-green,
 	primary-light: $nat-brown,
-	secondary: $nat-brown
+	secondary: $nat-brown,
+	anchor: $nat-green,
+	success: #3ADB76,
+	warning: #FFAE00,
+	alert: #CC4B37,
 );
+
+$foundation-palette: $af4-colors;
 
 $primary-color: map-get($af4-colors, primary);
 $secondary-color: map-get($af4-colors, secondary);

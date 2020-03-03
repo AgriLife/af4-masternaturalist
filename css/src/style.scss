@@ -5,9 +5,9 @@
 @import "settings-af4";
 @import "settings";
 
-// body {
-@import "util/colorscheme";
-// }
+body {
+	@import "util/colorscheme";
+}
 
 @import "header";
 @import "nav-color-variation";
