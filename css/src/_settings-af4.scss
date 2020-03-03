@@ -41,7 +41,7 @@ $green: #337845;
 $light-green: #B4D234;
 $purple: #5D0025;
 $beige: #FDE1B4;
-$primary-color: $maroon;
+$primary-color: $maroon !default;
 $yellow: #FF0;
 $nav-yellow: #FFE404;
 
@@ -49,7 +49,7 @@ $af4-colors: (
 	primary: $dark-blue,
 	primary-light: $light-blue,
 	secondary: $light-green
-);
+) !default;
 
 /* Fonts
 --------------------------------------------- */
@@ -124,7 +124,7 @@ $blockquote-padding: rem-calc(9 20 9 19);
 $cite-font-size: 0.9rem;
 $cite-color: $blockquote-color;
 $hr-border-color: map-get($af4-colors, primary-light);
-$hr-border: 2px dashed map-get($af4-colors, primary-light);
+$hr-border: 2px dashed $hr-border-color;
 $table-border-color: map-get($af4-colors, primary-light);
 $table-border: 1px solid $table-border-color;
 $flow-margin-x: rem-calc(24);

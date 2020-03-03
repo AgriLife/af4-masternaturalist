@@ -8,35 +8,6 @@ $nav-wrap-bg: $whiter;
 $nav-bg-gray: #E7E7E7;
 $nav-yellow: #FFE404;
 
-$primary-color: $nat-green;
-$secondary-color: $nat-brown;
-
-/* Override theme color variables used by util/_colorscheme.scss */
-$af4-colors: (
-	primary: $nat-green,
-	primary-light: $nat-brown,
-	secondary: $nat-brown
-);
-$site-title-background: map-get($af4-colors, primary);
-$topbar-background: $site-title-background;
-$topbar-submenu-background: lighten($site-title-background, 5%);
-$dropdown-menu-item-background-active: $site-title-background;
-$accordion-menu-item-background-active: $site-title-background;
-$menu-item-background-active: $site-title-background;
-$button-background: map-get($af4-colors, primary-light);
-$button-background-hover: map-get($af4-colors, primary);
-$blockquote-color: lighten(
-	desaturate(
-		adjust-hue(
-			map-get($af4-colors, primary), -7
-		), 18.13
-	), 19.80
-);
-$hr-border-color: map-get($af4-colors, primary-light);
-$hr-border: 2px dashed map-get($af4-colors, primary-light);
-$table-border-color: map-get($af4-colors, primary-light);
-/* END Override theme color variables used by util/_colorscheme.scss */
-
 /* Navigation
 --------------------------------------------- */
 $global-menu-padding-top: 0.7rem;

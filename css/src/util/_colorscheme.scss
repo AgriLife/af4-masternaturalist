@@ -185,12 +185,12 @@ table {
 body {
 	.wp-block-file .wp-block-file__button,
 	.wp-block-button .wp-block-button__link:not(.has-background) {
-		background: map-get($af4-colors, primary-light);
+		background: $button-background;
 
 		&:active,
 		&:focus,
 		&:hover {
-			background: map-get($af4-colors, primary);
+			background: $button-background-hover;
 		}
 	}
 
