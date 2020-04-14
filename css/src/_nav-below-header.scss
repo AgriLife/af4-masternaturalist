@@ -18,7 +18,11 @@ body {
 		@include breakpoint(medium) {
 			.top-bar {
 				width: 100%;
-				padding: 0 $grid-padding-gutters / 2;
+
+				&,
+				&.grid-container {
+					padding: 0 $grid-padding-gutters / 2;
+				}
 
 				.top-bar-left {
 					width: calc(100% + #{$grid-padding-gutters});
