@@ -44,13 +44,26 @@ class Assets {
 	 */
 	public function register_styles() {
 
+		global $wp_query;
+		$template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+
 		wp_register_style(
 			'masternaturalist-styles',
 			MNAF4_DIR_URL . 'css/style.css',
-			false,
+			array( 'agriflex-default-styles' ),
 			filemtime( MNAF4_DIR_PATH . 'css/style.css' ),
 			'screen'
 		);
+
+		if ( ! $template_name || 'default' === $template_name ) {
+			wp_register_style(
+				'masternaturalist-default-template-styles',
+				MNAF4_DIR_URL . 'css/template-default.css',
+				array( 'masternaturalist-styles' ),
+				filemtime( MNAF4_DIR_PATH . 'css/template-default.css' ),
+				'screen'
+			);
+		}
 
 	}
 
@@ -62,7 +75,14 @@ class Assets {
 	 */
 	public function enqueue_styles() {
 
+		global $wp_query;
+		$template_name = get_post_meta( $wp_query->post->ID, '_wp_page_template', true );
+
 		wp_enqueue_style( 'masternaturalist-styles' );
+
+		if ( ! $template_name || 'default' === $template_name ) {
+			wp_enqueue_style( 'masternaturalist-default-template-styles' );
+		}
 
 	}
 
