@@ -17,6 +17,7 @@ module.exports = (grunt) ->
           failOnError: true
         files:
           'css/style.css': 'css/style.css'
+          'css/template-default.css': 'css/template-default.css'
       dev:
         options:
           map: true
@@ -26,17 +27,20 @@ module.exports = (grunt) ->
           failOnError: true
         files:
           'css/style.css': 'css/style.css'
+          'css/template-default.css': 'css/template-default.css'
     merge_media:
       pkg:
         options:
           compress: true
         files:
           'css/style.css': 'css/style.css'
+          'css/template-default.css': 'css/template-default.css'
       dev:
         options:
           compress: false
         files:
           'css/style.css': 'css/style.css'
+          'css/template-default.css': 'css/template-default.css'
     sass:
       pkg:
         options:
@@ -47,6 +51,7 @@ module.exports = (grunt) ->
           includePaths: ['node_modules/foundation-sites/scss']
         files:
           'css/style.css': 'css/src/style.scss'
+          'css/template-default.css': 'css/src/template-default.scss'
       dev:
         options:
           implementation: sass
@@ -56,6 +61,7 @@ module.exports = (grunt) ->
           includePaths: ['node_modules/foundation-sites/scss']
         files:
           'css/style.css': 'css/src/style.scss'
+          'css/template-default.css': 'css/src/template-default.scss'
     sasslint:
       options:
         configFile: '.sass-lint.yml'
