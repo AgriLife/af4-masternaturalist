@@ -26,10 +26,17 @@ module.exports = (grunt) ->
           failOnError: true
         files:
           'css/style.css': 'css/style.css'
-    cmq:
-      your_target:
+    merge_media:
+      pkg:
+        options:
+          compress: true
         files:
-          'css': ['css/*.css']
+          'css/style.css': 'css/style.css'
+      dev:
+        options:
+          compress: false
+        files:
+          'css/style.css': 'css/style.css'
     sass:
       pkg:
         options:
@@ -58,10 +65,10 @@ module.exports = (grunt) ->
   @loadNpmTasks 'grunt-sass-lint'
   @loadNpmTasks 'grunt-sass'
   @loadNpmTasks 'grunt-postcss'
-  @loadNpmTasks 'grunt-combine-media-queries'
+  @loadNpmTasks 'grunt-merge-media'
 
-  @registerTask 'default', ['sasslint', 'sass:pkg', 'cmq', 'postcss:pkg']
-  @registerTask 'develop', ['sasslint', 'sass:dev']
+  @registerTask 'default', ['sasslint', 'sass:pkg', 'merge_media:pkg', 'postcss:pkg']
+  @registerTask 'develop', ['sasslint', 'sass:dev', 'merge_media:dev']
 
   @event.on 'watch', (action, filepath) =>
     @log.writeln('#{filepath} has #{action}')
