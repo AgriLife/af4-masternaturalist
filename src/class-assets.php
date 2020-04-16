@@ -50,7 +50,7 @@ class Assets {
 		wp_register_style(
 			'masternaturalist-styles',
 			MNAF4_DIR_URL . 'css/style.css',
-			array( 'agriflex-default-styles', 'agriflex-default-template-styles' ),
+			array( 'agriflex-default-styles' ),
 			filemtime( MNAF4_DIR_PATH . 'css/style.css' ),
 			'screen'
 		);
