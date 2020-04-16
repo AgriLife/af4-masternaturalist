@@ -55,7 +55,9 @@ class Assets {
 			'screen'
 		);
 
-		if ( ! $template_name || 'default' === $template_name ) {
+		// If body class is page-template-default or post-template-default.
+		if ( is_singular( 'post' ) || ( is_singular( 'page' ) && ( ! $template_name || 'default' === $template_name ) ) ) {
+
 			wp_register_style(
 				'masternaturalist-default-template-styles',
 				MNAF4_DIR_URL . 'css/template-default.css',
@@ -63,6 +65,7 @@ class Assets {
 				filemtime( MNAF4_DIR_PATH . 'css/template-default.css' ),
 				'screen'
 			);
+
 		}
 
 	}
@@ -80,8 +83,11 @@ class Assets {
 
 		wp_enqueue_style( 'masternaturalist-styles' );
 
-		if ( ! $template_name || 'default' === $template_name ) {
+		// If body class is page-template-default or post-template-default.
+		if ( is_singular( 'post' ) || ( is_singular( 'page' ) && ( ! $template_name || 'default' === $template_name ) ) ) {
+
 			wp_enqueue_style( 'masternaturalist-default-template-styles' );
+
 		}
 
 	}
