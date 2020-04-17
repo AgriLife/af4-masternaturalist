@@ -29,10 +29,10 @@ class Assets {
 	public function __construct() {
 
 		// Register global styles used in the theme.
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ), 1 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ), 2 );
 
 		// Enqueue extension styles.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 1 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 2 );
 
 	}
 
