@@ -8,16 +8,37 @@
 		text-align: left;
 		letter-spacing: 0;
 
-		.site-title img {
-			max: {
-				width: rem-calc(140);
-				height: rem-calc(88);
+		.site-title {
+
+			a {
+				color: $whiter;
+				display: flex;
+				align-items: center;
 			}
 
-			@include breakpoint(medium) {
+			.site-title-text {
+				display: inline-block;
+				margin: {
+					left: 1rem;
+					bottom: 0;
+				}
+
+				@include breakpoint(medium) {
+					margin-left: 2rem;
+				}
+			}
+
+			img {
 				max: {
-					width: rem-calc(228);
-					height: rem-calc(150);
+					width: rem-calc(140);
+					height: rem-calc(88);
+				}
+
+				@include breakpoint(medium) {
+					max: {
+						width: rem-calc(228);
+						height: rem-calc(150);
+					}
 				}
 			}
 		}
@@ -53,6 +74,12 @@
 
 		&.ext img {
 			height: rem-calc(44);
+		}
+	}
+
+	@include breakpoint(small only) {
+		.title-area {
+			padding-right: 0;
 		}
 	}
 }
