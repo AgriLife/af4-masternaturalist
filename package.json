@@ -1,6 +1,6 @@
 {
   "name": "af4-masternaturalist",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "AgriFlex4 variation for Texas Master Naturalist websites.",
   "main": "af4-masternaturalist.php",
   "scripts": {
