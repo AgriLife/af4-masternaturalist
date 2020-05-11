@@ -1,4 +1,6 @@
-/* Copied from https://github.com/AgriLife/agriflex4/blob/master/css/src/util/_colorscheme-template-default.scss */
+/* Copied from
+https://github.com/AgriLife/agriflex4/blob/master/css/src/util/_colorscheme-template-default.scss
+*/
 h1 {
 	@supports (text-decoration-color: map-get($af4-colors, secondary)) {
 		text-decoration-color: map-get($af4-colors, secondary);
