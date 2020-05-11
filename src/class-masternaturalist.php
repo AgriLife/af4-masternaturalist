@@ -41,11 +41,24 @@ class MasterNaturalist {
 	 */
 	private function __construct() {
 
-		// Require classes.
-		$this->require_classes();
+		// Initialize.
+		add_action( 'init', array( $this, 'init' ) );
 
 		// Add Widgets.
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+
+	}
+
+	/**
+	 * Initialize the various classes
+	 *
+	 * @since 0.3.0
+	 * @return void
+	 */
+	public function init() {
+
+		// Require classes.
+		$this->require_classes();
 
 	}
 
