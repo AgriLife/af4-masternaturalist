@@ -51,11 +51,15 @@ class MoveNavUnderHeader {
 		add_action( 'genesis_structural_wrap-header', array( $this, 'genesis_do_nav' ), 16 );
 
 		// Remove default mobile navigation menu toggle elements.
-		remove_filter( 'af4_before_nav', array( $af_required, 'af4_nav_primary_title_bar_open' ), 9 );
-		remove_filter( 'af4_before_nav', array( $af_required, 'add_menu_toggle' ), 10 );
-		remove_filter( 'af4_before_nav', array( $af_required, 'add_search_toggle' ), 11 );
-		remove_filter( 'af4_before_nav', array( $af_required, 'af4_nav_primary_title_bar_close' ), 12 );
-		add_filter( 'genesis_markup_title-area_close', array( $this, 'mobile_nav_toggle' ), 99, 2 );
+		if ( isset( $af_required ) ) {
+
+			remove_filter( 'af4_before_nav', array( $af_required, 'af4_nav_primary_title_bar_open' ), 9 );
+			remove_filter( 'af4_before_nav', array( $af_required, 'add_menu_toggle' ), 10 );
+			remove_filter( 'af4_before_nav', array( $af_required, 'add_search_toggle' ), 11 );
+			remove_filter( 'af4_before_nav', array( $af_required, 'af4_nav_primary_title_bar_close' ), 12 );
+			add_filter( 'genesis_markup_title-area_close', array( $this, 'mobile_nav_toggle' ), 99, 2 );
+
+		}
 
 		// Move search widget right header widget area attached to the AgriFlex\RequiredDOM class.
 		add_filter( 'af4_primary_nav_menu', array( $this, 'add_search_to_nav' ), 9 );
