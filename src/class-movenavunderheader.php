@@ -48,7 +48,7 @@ class MoveNavUnderHeader {
 
 		// Move navigation menu to after the header structural wrap but within the sticky container.
 		remove_action( 'genesis_header', 'genesis_do_nav', 10 );
-		add_action( 'genesis_structural_wrap-header', array( $this, 'genesis_do_nav' ), 16 );
+		add_action( 'genesis_header', 'genesis_do_nav', 12 );
 
 		// Remove default mobile navigation menu toggle elements.
 		if ( isset( $af_required ) ) {
@@ -143,26 +143,6 @@ class MoveNavUnderHeader {
 
 		$attributes['class'] = 'nav-p';
 		return $attributes;
-
-	}
-
-	/**
-	 * Add nav menu in grid container
-	 *
-	 * @since 0.1.1
-	 * @param string $output Output for the site header wrap.
-	 * @return string
-	 */
-	public function genesis_do_nav( $output ) {
-
-		ob_start();
-		genesis_do_nav();
-		$nav = ob_get_contents();
-		ob_end_clean();
-
-		$output = preg_replace( '/<\/div><\/div><\/div>$/', '</div>' . $nav . '</div></div>', $output );
-
-		return $output;
 
 	}
 
