@@ -24,7 +24,7 @@
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
     "foundation-sites": "^6.6.1",
-    "grunt": "^1.0.3",
+    "grunt": "^1.5.3",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-merge-media": "^0.4.0",
     "grunt-postcss": "^0.9.0",
