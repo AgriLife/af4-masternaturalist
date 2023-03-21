@@ -167,7 +167,7 @@ class Genesis {
 	public function add_logo( $title, $inside, $wrap ) {
 
 		$new_inside = sprintf(
-			'<div class="logo"><a href="%s" title="%s"><img src="%s" alt="%s"><span class="h2 site-title-text">%s</span></a></div>',
+			'<div class="logo"><a href="%s" title="%s"><img src="%s" alt="%s"><span class="h1 site-title-text">%s</span></a></div>',
 			trailingslashit( home_url() ),
 			get_bloginfo( 'name' ),
 			MNAF4_DIR_URL . 'images/logo-white.png',
